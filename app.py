@@ -25,6 +25,7 @@ def inventario_inicial():
             precio.append(producto[0].split(";")[2])
             ubicacion.append(producto[0].split(";")[3])
         
+        print("## PRODUCTOS AGREGADOS! ##")
         print(product)
         print(stock)
         print(precio)
@@ -52,11 +53,11 @@ def instrucciones_movimiento():
         for index, instrucciones in enumerate(instruccion):
             validaciones_movimiento(instrucciones, producto_temp[index], cantidad_temp[index], ubicacion_temp[index])
 
-        print("")
-        print(instruccion)
-        print(producto_temp)
-        print(cantidad_temp)
-        print(ubicacion_temp)
+        print("## SE HICIERON MOVIMIENTOS EN LOS PRODUCTOS ##")
+        print(product)
+        print(stock)
+        print(precio)
+        print(ubicacion)
 
     except:
         print("** ARCHIVO NO ENCONTRADO **")
@@ -66,11 +67,6 @@ def validaciones_movimiento(instru, nombre, cantidad, ubicacion):
         if buscar_producto(nombre, ubicacion) == True:
             agregar_producto(nombre, ubicacion, cantidad)
             print("## PRODUCTO", nombre, " AGREGADO CORRECTAMENTE ##")
-            print("")
-            print(product)
-            print(stock)
-            print(precio)
-            print(ubicacion)
         elif buscar_producto(nombre, ubicacion) == False:
             print("** EL PRODUCTO", nombre, "NO EXISTE EN ESA UBICACIÓN **")
 
@@ -88,9 +84,10 @@ def validaciones_movimiento(instru, nombre, cantidad, ubicacion):
 
 def agregar_producto(nombre, ubicacion_p, cantidad):
     for index, productos in enumerate(product):
-        for ubicaciones in ubicacion:
-            if productos == nombre and ubicaciones == ubicacion_p:
-                stock[index] = str(int(stock[index]) + int(cantidad))
+        #for ubicaciones in ubicacion:
+        if nombre == productos and ubicacion_p == ubicacion[index]:
+            stock[index] = str(int(stock[index]) + int(cantidad))
+                #print(nombre, ubicacion_p, stock[index])
 
 def vender_producto(nombre, ubicacion_p, cantidad):
     for index, productos in enumerate(product):
@@ -103,10 +100,10 @@ def vender_producto(nombre, ubicacion_p, cantidad):
 
     
 def buscar_producto(nombre, ubicacion_p):
-    for productos in product:
-        for ubicaciones in ubicacion:
-            if productos == nombre and ubicaciones == ubicacion_p:
-                return True
+    for index, productos in enumerate(product):
+        #for ubicaciones in ubicacion:
+        if nombre == productos and ubicacion_p == ubicacion[index]:
+            return True
             
     return False
 
