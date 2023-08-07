@@ -107,6 +107,12 @@ def buscar_producto(nombre, ubicacion_p):
             
     return False
 
+def reporte():
+    print("## INGRESE EL NOMBRE PARA GUARDAR EL REPORTE ##")
+    nombre = input()
+    funciones.escribir_reporte(nombre,product,stock,precio,ubicacion)
+
+
 def menu():
     print("")
     print("-------------------------------------------------------")
@@ -127,13 +133,12 @@ def menu():
 
     if opcion == "1":
         inventario_inicial()
-
         menu()
     elif opcion == "2":
         instrucciones_movimiento()
         menu()
     elif opcion == "3":
-        print("3")
+        reporte()
         menu()
     elif opcion == "4":
         print("4")
