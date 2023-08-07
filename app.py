@@ -16,6 +16,8 @@ def main():
 def inventario_inicial():
     print("## INGRESE EL NOMBRE DEL ARCHIVO O LA RUTA ##")
     archivo = input()
+    print("")
+
     try: 
         for p in funciones.leer(archivo, ".inv"):
             producto = p.split(" ",1)
@@ -40,6 +42,7 @@ def instrucciones_movimiento():
     ubicacion_temp = []
     print("## INGRESE EL NOMBRE DEL ARCHIVO O LA RUTA ##")
     archivo = input()
+    print("")
 
     try:
         for movimiento in funciones.leer(archivo, ".mov"):
@@ -52,6 +55,7 @@ def instrucciones_movimiento():
 
         for index, instrucciones in enumerate(instruccion):
             validaciones_movimiento(instrucciones, producto_temp[index], cantidad_temp[index], ubicacion_temp[index])
+            print("")
 
         print("## SE HICIERON MOVIMIENTOS EN LOS PRODUCTOS ##")
         print(product)
@@ -73,11 +77,7 @@ def validaciones_movimiento(instru, nombre, cantidad, ubicacion):
     elif instru == "vender_producto":
         if buscar_producto(nombre, ubicacion) == True:
             vender_producto(nombre, ubicacion, cantidad)
-            print("")
-            print(product)
-            print(stock)
-            print(precio)
-            print(ubicacion)
+
         elif buscar_producto(nombre, ubicacion) == False:
             print("** EL PRODUCTO", nombre, "NO EXISTE EN ESA UBICACIÓN **")
 
