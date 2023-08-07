@@ -73,7 +73,6 @@ def validaciones_movimiento(instru, nombre, cantidad, ubicacion):
     elif instru == "vender_producto":
         if buscar_producto(nombre, ubicacion) == True:
             vender_producto(nombre, ubicacion, cantidad)
-            print("## PRODUCTO", nombre, " VENDIDO CORRECTAMENTE ##")
             print("")
             print(product)
             print(stock)
@@ -85,24 +84,25 @@ def validaciones_movimiento(instru, nombre, cantidad, ubicacion):
 def agregar_producto(nombre, ubicacion_p, cantidad):
     for index, productos in enumerate(product):
         #for ubicaciones in ubicacion:
-        if nombre == productos and ubicacion_p == ubicacion[index]:
+        if nombre == productos and ubicacion_p.strip() == ubicacion[index].strip():
             stock[index] = str(int(stock[index]) + int(cantidad))
                 #print(nombre, ubicacion_p, stock[index])
 
 def vender_producto(nombre, ubicacion_p, cantidad):
     for index, productos in enumerate(product):
-        for ubicaciones in ubicacion:
-            if productos == nombre and ubicaciones == ubicacion_p:
-                if int(cantidad) <= int(stock[index]):
-                    stock[index] = str(int(stock[index]) - int(cantidad))
-                else:
-                    print("** NO HAY SUFICIENTES PRODUCTO", nombre, " EN STOCK **")
+        #for ubicaciones in ubicacion:
+        if nombre == productos and ubicacion_p.strip() == ubicacion[index].strip():
+            if int(cantidad) <= int(stock[index]):
+                stock[index] = str(int(stock[index]) - int(cantidad))
+                print("## PRODUCTO", nombre, " VENDIDO CORRECTAMENTE ##")
+            else:
+                print("** NO HAY SUFICIENTES PRODUCTO", nombre, " EN STOCK **")
 
     
 def buscar_producto(nombre, ubicacion_p):
     for index, productos in enumerate(product):
         #for ubicaciones in ubicacion:
-        if nombre == productos and ubicacion_p == ubicacion[index]:
+        if nombre == productos and ubicacion_p.strip() == ubicacion[index].strip():
             return True
             
     return False
