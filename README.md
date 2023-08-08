@@ -19,7 +19,11 @@ Se pueden generar y leer archivos:
 
 Este programa contiene las siguientes funcionalidades:
 
-### Funcionalidad 1
+### Archivo ```funciones_archivos.py```
+
+Este archivo tiene todas las funciones para trabajar con archivos, ya sea leer o escribir.
+
+#### Funcionalidad 1
 
 El siguiente codigo se encuentra en el archivo ```funciones_archivos.py```. Se encarga de recibir un archivo con extension ".inv" y lo lee. Guardando todas las instrucciones en una lista y retornando dicha lista.
 
@@ -38,7 +42,7 @@ def leer(archivo, ext):
         return lineas
 ```
 
-### Funcionalidad 2
+#### Funcionalidad 2
 
 El siguiente codigo se encuentra en el archivo ```funciones_archivos.py```. Se encarga de generar un archivo con extension ".txt" para mostrar el reporte del inventario. Obteniendo la lista de productos, cantidad, precio y ubicación para escribir el reporte.
 
