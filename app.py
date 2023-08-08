@@ -72,14 +72,14 @@ def validaciones_movimiento(instru, nombre, cantidad, ubicacion):
             agregar_producto(nombre, ubicacion, cantidad)
             print("## PRODUCTO", nombre, " AGREGADO CORRECTAMENTE ##")
         elif buscar_producto(nombre, ubicacion) == False:
-            print("** EL PRODUCTO", nombre, "NO EXISTE EN ESA UBICACIÓN **")
+            print("** PRODUCTO", nombre, "NO EXISTE EN UBICACIÓN:", ubicacion.strip(),"**")
 
     elif instru == "vender_producto":
         if buscar_producto(nombre, ubicacion) == True:
             vender_producto(nombre, ubicacion, cantidad)
 
         elif buscar_producto(nombre, ubicacion) == False:
-            print("** EL PRODUCTO", nombre, "NO EXISTE EN ESA UBICACIÓN **")
+            print("** PRODUCTO", nombre, "NO EXISTE EN ESA UBICACIÓN:", ubicacion.strip(),"**")
 
 def agregar_producto(nombre, ubicacion_p, cantidad):
     for index, productos in enumerate(product):
